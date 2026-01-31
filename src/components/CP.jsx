@@ -110,7 +110,7 @@ function CompetitiveProgrammingComponent() {
       name: "LinkedIn",
       logo: "https://tse1.mm.bing.net/th/id/OIP.waOtRAV99hCXTCS_RvbK6QHaGp?rs=1&pid=ImgDetMain&o=7&rm=3",
       handle: "Software Engineer | IT Graduate",
-      profileUrl: "https://linkedin.com/in/simongatungo",
+      profileUrl: "https://linkedin.com/in/simongatungob8a429225",
       stats: [
         { label: "Experience", value: "Teach2Give + Industry Projects" },
         { label: "Interest", value: "AgriTech & Scalable Systems" },

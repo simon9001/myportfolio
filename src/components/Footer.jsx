@@ -9,7 +9,7 @@ const socialLinks = [
     icon: Github,
   },
   {
-    href: "https://www.linkedin.com/in/simongatungo/",
+    href: "https://www.linkedin.com/in/simongatungob8a429225",
     title: "LinkedIn",
     icon: Linkedin,
   },

@@ -3,18 +3,16 @@ import { Code, Layers, Terminal, Sparkles, Settings2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 // --- Animation Variants (The "Staggered Entrance" Pattern) ---
-// This container will orchestrate the animation for the whole page
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15, // Time delay between each child animating in
+      staggerChildren: 0.15,
     },
   },
 };
 
-// This variant will be used by each item in the container
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -65,7 +63,6 @@ const SkillSection = memo(({ section, hoveredTag, onTagHover, onTagLeave }) => {
   );
 
   return (
-    // This card is now an item in the grid's stagger animation
     <motion.div
       variants={itemVariants}
       className="rounded-2xl bg-white/90 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 shadow p-6 flex flex-col"
@@ -84,14 +81,36 @@ const SkillSection = memo(({ section, hoveredTag, onTagHover, onTagLeave }) => {
 });
 SkillSection.displayName = "SkillSection";
 
-// --- Static Data (No changes needed) ---
+// --- Static Data (Categorized and cleaned up) ---
 const SKILLS_SECTIONS = [
-    { icon: <Code className="w-6 h-6" />, title: "Programming Languages", tags: ["Python", "C", "Java", "JavaScript", "Typescript", "HTML", "CSS"] },
-    { icon: <Layers className="w-6 h-6" />, title: "Frameworks & Libraries", tags: ["React", "Tailwind CSS", "SFML", "NumPy", "flutter", "Django","Pandas"] },
-    { icon: <Terminal className="w-6 h-6" />, title: "Tools & Platforms", tags: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Sublime Text"] },
-    { icon: <Sparkles className="w-6 h-6" />, title: "Interests", tags: ["Software Engeneer", "Database Engeneer", "Machine Learning", "It infrastructure Desinger","Web Development", "User surporty"] },
+  {
+    icon: <Code className="w-6 h-6" />,
+    title: "Programming Languages",
+    tags: ["Python", "C", "Java", "JavaScript", "TypeScript", "HTML", "CSS"],
+  },
+  {
+    icon: <Layers className="w-6 h-6" />,
+    title: "Frameworks & Libraries",
+    tags: ["React", "Tailwind CSS", "Flutter", "Django", "NumPy", "Pandas", "SFML"],
+  },
+  {
+    icon: <Terminal className="w-6 h-6" />,
+    title: "Tools & Platforms",
+    tags: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Sublime Text"],
+  },
+  {
+    icon: <Sparkles className="w-6 h-6" />,
+    title: "Interests & Specializations",
+    tags: [
+      "Software Engineering",
+      "Database Engineering",
+      "Machine Learning",
+      "IT Infrastructure Design",
+      "Web Development",
+      "User Support",
+    ],
+  },
 ];
-
 
 // --- Main Skills Component ---
 const SkillsComponent = memo(function Skills() {
@@ -101,30 +120,26 @@ const SkillsComponent = memo(function Skills() {
 
   return (
     <div className="w-full min-h-[80vh] flex flex-col items-center justify-center px-4 py-12">
-      {/* 1. This is the SINGLE animation container for the whole page. */}
-      {/* It uses `animate`, not `whileInView`, for guaranteed execution. */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="flex flex-col items-center w-full"
       >
-        {/* Item 1: The header text block */}
         <motion.div variants={itemVariants} className="flex flex-col items-center text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 flex items-center gap-4 text-foreground">
-                <Settings2 className="w-8 h-8 sm:w-11 sm:h-11 text-primary drop-shadow-sm" />
-                Skills & Interests
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-                Here you'll find a snapshot of my technical toolkit and passions. I
-                believe in learning by doing, and my skills reflect a blend of academic
-                depth and hands-on project work.
-            </p>
+          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 flex items-center gap-4 text-foreground">
+            <Settings2 className="w-8 h-8 sm:w-11 sm:h-11 text-primary drop-shadow-sm" />
+            Skills & Interests
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+            Here you'll find a snapshot of my technical toolkit and passions. I
+            believe in learning by doing, and my skills reflect a blend of academic
+            depth and hands-on project work.
+          </p>
         </motion.div>
-        
-        {/* Item 2: The entire skill card grid animates in as one block... */}
+
         <motion.div
-          variants={containerVariants} // It's also a container for its own children
+          variants={containerVariants}
           className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {SKILLS_SECTIONS.map((section) => (

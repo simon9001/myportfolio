@@ -149,7 +149,7 @@ export default memo(function About() {
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             {socialLinksElements}
             <a
-              href={RESUME_URL}
+              href="https://drive.google.com/file/d/1kkVzRKXvznmWG2xztKXRfTdUda23yFzg/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 h-11 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:scale-105 transition-all"
